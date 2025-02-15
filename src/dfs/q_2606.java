@@ -26,12 +26,9 @@ public class q_2606 {
             A[e].add(s);
         }
 
-
         DFS(1);
 
         count -=1;
-
-
         System.out.println(count);
     }
 
