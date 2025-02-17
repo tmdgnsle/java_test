@@ -6,8 +6,7 @@ import java.io.*;
 public class swea_1206 {
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int T = Integer.parseInt(br.readLine());
-		for(int t = 1; t<=T; t++) {
+		for(int t = 1; t<=10; t++) {
 			int N = Integer.parseInt(br.readLine());
 			int[] A = new int[N];
 			StringTokenizer st = new StringTokenizer(br.readLine());
