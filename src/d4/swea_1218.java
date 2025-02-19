@@ -14,6 +14,7 @@ public class swea_1218 {
 			int result = 1;
 			for (int i = 0; i < N; i++) {
 				char c = str.charAt(i);
+				
 				if (c == '(' || c == '{' || c == '[' || c == '<') {
 					stack.add(c);
 				}
