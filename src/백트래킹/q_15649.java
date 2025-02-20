@@ -20,7 +20,6 @@ public class q_15649 {
 
 	static void bt() {
 		if (result.size() == M) {
-			// 출력
 			for (int i = 0; i < result.size(); i++) {
 				System.out.print(result.get(i) + " ");
 			}
