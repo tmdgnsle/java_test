@@ -3,13 +3,13 @@ package d4;
 import java.util.*;
 import java.io.*;
 
-public class swea_1231 {
+public class swea_1232 {
 	static class Node {
-		char data;
+		String data;
 		int left;
 		int right;
 
-		public Node(char data, int left, int right) {
+		public Node(String data, int left, int right) {
 			this.data = data;
 			this.left = left;
 			this.right = right;
@@ -18,21 +18,21 @@ public class swea_1231 {
 	}
 
 	static Node[] tree;
-	static StringBuilder sb;
+	static Stack<Integer> stack;
 
 	public static void main(String[] args) throws Exception {
-		System.setIn(new FileInputStream("res/input_1231.txt"));
+		System.setIn(new FileInputStream("res/input_1232.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		for (int t = 1; t <= 10; t++) {
 			int N = Integer.parseInt(br.readLine());
 
 			tree = new Node[N + 1];
-			sb = new StringBuilder();
+			stack = new Stack();
 			for (int i = 0; i < N; i++) {
 				StringTokenizer st = new StringTokenizer(br.readLine());
 				int node_num = Integer.parseInt(st.nextToken());
 
-				char data = st.nextToken().toCharArray()[0];
+				String data = st.nextToken();
 
 				int left = 0;
 				int right = 0;
@@ -48,7 +48,11 @@ public class swea_1231 {
 
 			}
 			inorder(1);
-			System.out.println("#" + t + " " + sb);
+
+			int result = stack.pop();
+
+			System.out.println("#" + t + " " + result);
+
 		}
 	}
 
@@ -56,8 +60,47 @@ public class swea_1231 {
 		if (node_num == 0)
 			return;
 		inorder(tree[node_num].left);
-		sb.append(tree[node_num].data);
 		inorder(tree[node_num].right);
+
+		int a = 0;
+		int b = 0;
+		int result = 0;
+
+		switch (tree[node_num].data) {
+		case ("*"):
+			b = stack.pop();
+			a = stack.pop();
+
+			result = a * b;
+			stack.push(result);
+
+			break;
+		case ("/"):
+			b = stack.pop();
+			a = stack.pop();
+
+			result = a / b;
+			stack.push(result);
+			break;
+		case ("+"):
+			b = stack.pop();
+			a = stack.pop();
+
+			result = a + b;
+			stack.push(result);
+			break;
+		case ("-"):
+			b = stack.pop();
+			a = stack.pop();
+
+			result = a - b;
+			stack.push(result);
+			break;
+		default:
+			stack.push(Integer.parseInt(tree[node_num].data));
+			break;
+		}
+
 	}
 
 }
