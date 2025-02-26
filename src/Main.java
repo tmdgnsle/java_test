@@ -22,6 +22,8 @@ public class Main {
             check = new int[V + 1];
             isEven = true;
 
+
+
             for (int i = 1; i <= V; i++) {
                 A[i] = new ArrayList<Integer>();
             }
