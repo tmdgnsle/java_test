@@ -1,10 +1,13 @@
+package dfs;
+
+
 //  안전 영역
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Main {
+public class q_2468 {
     static int N;
     static int[][] map;
     static boolean[][] v;
