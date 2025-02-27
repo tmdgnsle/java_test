@@ -1,66 +1,84 @@
+//  스타트와 링크
+
 import java.util.*;
+import java.lang.*;
 import java.io.*;
 
-public class Main {
-
-    static ArrayList<Integer>[] A;
-    static int[] check;
-    static boolean[] visited;
-    static boolean isEven;
+class Main {
+    static int N;
+    static int M;
+    static int[][] arr;
+    static boolean[] v;
+    static int min;
+    static ArrayList<Integer> result;
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int testCase = Integer.parseInt(br.readLine());
-        for (int t = 0; t < testCase; t++) {
-            String[] s = br.readLine().split(" ");
-            int V = Integer.parseInt(s[0]);
-            int E = Integer.parseInt(s[1]);
-
-
-            A = new ArrayList[V + 1];
-            visited = new boolean[V + 1];
-            check = new int[V + 1];
-            isEven = true;
-
-
-
-            for (int i = 1; i <= V; i++) {
-                A[i] = new ArrayList<Integer>();
+        N = Integer.parseInt(br.readLine());
+        M = N / 2;
+        arr = new int[N + 1][N + 1];
+        v = new boolean[N + 1];
+        min = Integer.MAX_VALUE;
+        result = new ArrayList<Integer>();
+        for (int i = 1; i <= N; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            for (int j = 1; j <= N; j++) {
+                arr[i][j] = Integer.parseInt(st.nextToken());
             }
+        }
 
-            for (int i = 0; i < E; i++) {
-                s = br.readLine().split(" ");
-                int start = Integer.parseInt(s[0]);
-                int end = Integer.parseInt(s[1]);
-                A[start].add(end);
-                A[end].add(start);
+        bt();
+
+        System.out.println(min);
+
+    }
+
+    static void bt() {
+        if (result.size() == M) {
+            int sum = 0;
+            int ops = 0;
+            int[] op = new int[N];
+            for (int i = 0; i < N; i++) {
+                op[i] = i + 1;
             }
-            // 모든 노드에서 DFS 실행
-            for (int i = 1; i <= V; i++) {
-                if (isEven) {
-                    if (!visited[i]) DFS(i);
-                } else {
-                    break;
+            for (int i = 0; i < M; i++) {
+                int num = result.get(i);
+                for (int j = 0; j < M; j++) {
+                    int num2 = result.get(j);
+                    sum += arr[num][num2];
+                }
+                op[num - 1] = 0;
+            }
+            for (int i = 0; i < N; i++) {
+                int op1 = op[i];
+                if (op1 != 0) {
+                    for (int j = 0; j < N; j++) {
+                        int op2 = op[j];
+                        if (op2 != 0) {
+                            ops += arr[op1][op2];
+                        }
+
+                    }
                 }
             }
 
-            if (isEven) System.out.println("YES");
-            else System.out.println("NO");
+            min = Math.min(min, Math.abs(sum - ops));
 
+            return;
         }
-    }
+        for (int i = 1; i <= N; i++) {
+            if (!v[i]) {
+                v[i] = true;
+                result.add(i);
 
-    static void DFS(int start) {
-        visited[start] = true;
-        for (int i : A[start]) {
-            if (!visited[i]) {
-                // 바로 직전에 있는 노드와 다른 집합으로 분류를 해주는 것이 필요
-                check[i] = (check[start] + 1) % 2;
-                DFS(i);
-            } else if (check[start] == check[i]) {
-                isEven = false;
+                bt();
+
+                v[i] = false;
+                result.remove(result.size() - 1);
             }
         }
+
+
     }
 
 
