@@ -1,10 +1,13 @@
+package dfs;
+
+
 //  빙산
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Main {
+class q_2573 {
     static int N, M;
     static int[][] ice;
     static int[][] newIce;
@@ -45,7 +48,7 @@ class Main {
                     }
                 }
             }
-            if(count == 0) break;
+            if (count == 0) break;
             if (count > 1) {
                 result = year;
                 break;
