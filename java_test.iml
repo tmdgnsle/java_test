@@ -12,6 +12,7 @@
       <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/스타트와 링크" />
       <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/안전 영역" />
       <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/이항 계수 1" />
+      <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/촌수계산" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

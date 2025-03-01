@@ -1,10 +1,13 @@
+package dfs;
+
+
 //  촌수계산
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Main {
+class q_2644 {
     static int N, M;
     static int p1, p2;
     static ArrayList<Integer>[] arr;
@@ -51,9 +54,9 @@ class Main {
 
         v[current] = true;
 
-        for (int next: arr[current]){
-            if(!v[next]){
-                dfs(count+1, next);
+        for (int next : arr[current]) {
+            if (!v[next]) {
+                dfs(count + 1, next);
             }
         }
 
