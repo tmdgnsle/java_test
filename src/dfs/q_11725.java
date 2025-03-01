@@ -1,10 +1,13 @@
+package dfs;
+
+
 //  트리의 부모 찾기
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Main {
+class q_11725 {
     static int N;
     static int[] result;
     static ArrayList<Integer>[] arr;

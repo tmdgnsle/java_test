@@ -13,6 +13,7 @@
       <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/안전 영역" />
       <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/이항 계수 1" />
       <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/촌수계산" />
+      <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/트리의 부모 찾기" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
