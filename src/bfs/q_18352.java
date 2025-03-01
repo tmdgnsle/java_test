@@ -1,10 +1,13 @@
+package bfs;
+
+
 //  특정 거리의 도시 찾기
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Main {
+class q_18352 {
     static int N, M, K, X;
     static int[] citys;
     static boolean[] v;
@@ -36,10 +39,10 @@ class Main {
 
         bfs(X);
 
-        if(result.isEmpty()) System.out.println(-1);
+        if (result.isEmpty()) System.out.println(-1);
         else {
             Collections.sort(result);
-            for(int city : result){
+            for (int city : result) {
                 System.out.println(city);
             }
         }
