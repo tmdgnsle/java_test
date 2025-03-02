@@ -19,6 +19,7 @@
       <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/특정 거리의 도시 찾기" />
       <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/경비원" />
       <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/숫자 정사각형" />
+      <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/킹" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -1,10 +1,11 @@
+package 배열2차원;
 //  킹
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Main {
+class q_1063 {
     static int[][] chess;
     static int Ki, Kj, Di, Dj;
 
