@@ -1,10 +1,13 @@
+package 배열2차원;
+
+
 //  경비원
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Main {
+public class q_2564 {
     static int N;
     static int M;
     static ArrayList<int[]> arr;
