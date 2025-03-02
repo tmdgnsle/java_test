@@ -1,10 +1,13 @@
+package 배열2차원;
+
+
 //  지구 온난화
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Main {
+public class q_5212 {
     static int[] di = {-1, 0, 1, 0};
     static int[] dj = {0, 1, 0, -1};
 
@@ -45,7 +48,7 @@ class Main {
                         if (map[ni][nj].equals(".")) count++;
                     }
                     if (count < 3) {
-                        nm.add(new int[] {i, j});
+                        nm.add(new int[]{i, j});
 
                     }
                 }
@@ -59,7 +62,7 @@ class Main {
             }
         }
 
-        for(int[] pos: nm){
+        for (int[] pos : nm) {
             int di = pos[0];
             int dj = pos[1];
 
