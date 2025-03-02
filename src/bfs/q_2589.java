@@ -1,10 +1,13 @@
+package bfs;
+
+
 //  보물섬
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Main {
+class q_2589 {
     static int N, M;
     static char[][] map;
     static boolean[][] v;
