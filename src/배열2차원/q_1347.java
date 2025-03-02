@@ -1,10 +1,13 @@
+package 배열2차원;
+
+
 //  미로 만들기
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Main {
+public class q_1347 {
     static int[] dx = {-1, 0, 1, 0};
     static int[] dy = {0, 1, 0, -1};
 
@@ -39,10 +42,10 @@ class Main {
                     dir = (dir + 1) % 4;
                     break;
                 case ("L"):
-                    if(dir == 0){
+                    if (dir == 0) {
                         dir = 3;
                     } else {
-                        dir = dir -1;
+                        dir = dir - 1;
                     }
 
                     break;
