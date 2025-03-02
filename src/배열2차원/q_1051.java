@@ -1,10 +1,13 @@
+package 배열2차원;
+
+
 //  숫자 정사각형
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Main {
+public class q_1051 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -28,7 +31,7 @@ class Main {
                     int p2 = arr[i][k];
                     if (p1 == p2) {
                         int distance = k - j;
-                        if (i + distance < N){
+                        if (i + distance < N) {
                             int p3 = arr[i + distance][j];
                             int p4 = arr[i + distance][k];
 
@@ -37,7 +40,6 @@ class Main {
                                 max = Math.max(max, a);
                             }
                         }
-
 
 
                     }
