@@ -1,7 +1,10 @@
+package 배열2차원;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_16918 {
     static int R, C, N;
     static int[][] map;
     static int[] dx = {-1, 0, 1, 0};
@@ -42,7 +45,7 @@ public class Main {
     }
 
     static void bomb(int time) {
-        ArrayList<int[]> arr =new ArrayList<>();
+        ArrayList<int[]> arr = new ArrayList<>();
         if (time % 2 == 0) {
             for (int i = 0; i < R; i++) {
                 for (int j = 0; j < C; j++) {
@@ -71,7 +74,7 @@ public class Main {
             }
         }
 
-        for(int[] a:arr){
+        for (int[] a : arr) {
             map[a[0]][a[1]] = 0;
         }
 

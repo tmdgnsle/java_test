@@ -25,6 +25,7 @@
       <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/지구 온난화" />
       <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/체스" />
       <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/킹" />
+      <excludeFolder url="file://$MODULE_DIR$/Baekjoon Online Judge/봄버맨" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
