@@ -1,7 +1,10 @@
+package 배열2차원;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_10157 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int C = sc.nextInt();
@@ -23,8 +26,7 @@ public class Main {
         arr[cx][cy] = count;
 
 
-
-        if(K > R*C){
+        if (K > R * C) {
             System.out.println(0);
             return;
         }
@@ -34,14 +36,14 @@ public class Main {
             int nx = cx + dx[dir];
             int ny = cy + dy[dir];
 
-            if(nx < 0 || ny < 0 || nx >= R || ny >=C || arr[nx][ny]!=0){
-                dir = (dir+1) %4;
+            if (nx < 0 || ny < 0 || nx >= R || ny >= C || arr[nx][ny] != 0) {
+                dir = (dir + 1) % 4;
                 nx = cx + dx[dir];
                 ny = cy + dy[dir];
             }
 
             arr[nx][ny] = ++count;
-            if(count == K){
+            if (count == K) {
                 targetX = nx;
                 targetY = ny;
             }
