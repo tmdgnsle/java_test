@@ -1,7 +1,10 @@
+package 배열2차원;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_17829 {
     static int[][] matrix;
 
     public static void main(String[] args) throws IOException {
