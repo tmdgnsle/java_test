@@ -1,7 +1,10 @@
+package 배열2차원;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_2615 {
     static int[][] board = new int[19][19];
     // 방향: 우, 우하, 하, 좌상 (8방향 탐색 시 중복 제거를 위해 4방향만 탐색)
     static int[] dx = {0, 1, 1, -1};
