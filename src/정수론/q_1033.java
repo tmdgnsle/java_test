@@ -1,7 +1,9 @@
+package 정수론;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_1033 {
 	static ArrayList<Node>[] A;
 	static long lcm;
 	static boolean[] v;
