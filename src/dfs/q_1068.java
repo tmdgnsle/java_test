@@ -1,7 +1,9 @@
+package dfs;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_1068 {
 	static ArrayList<Integer>[] tree;
 	static boolean[] v;
 	static int answer = 0;
