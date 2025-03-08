@@ -1,7 +1,10 @@
+package 백트래킹;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_1987 {
     static boolean v[];
     static char[][] map;
     static int R, C;
