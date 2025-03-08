@@ -1,7 +1,10 @@
+package 백트래킹;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_15686 {
     static int N, M;
     static ArrayList<Point> house;
     static ArrayList<Point> chickens;
