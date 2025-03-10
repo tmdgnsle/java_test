@@ -1,7 +1,9 @@
+package 백트래킹;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_2961 {
 	static int N;
 	static int result;
 	static boolean[] v;
