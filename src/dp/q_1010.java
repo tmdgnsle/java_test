@@ -1,7 +1,9 @@
+package dp;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_1010 {
 	static int N, M;
 	static int[][] D;
 
