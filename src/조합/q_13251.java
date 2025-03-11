@@ -1,7 +1,9 @@
+package 조합;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_13251 {
 	public static void main(String[] args) throws Exception {
 		int M, K, T;
 		int D[] = new int[51];
