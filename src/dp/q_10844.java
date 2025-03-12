@@ -1,7 +1,9 @@
+package dp;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_10844 {
 	static long mod = 1000000000;
 
 	public static void main(String[] args) throws Exception {
