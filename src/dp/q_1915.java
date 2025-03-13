@@ -1,7 +1,9 @@
+package dp;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_1915 {
 
 	public static void main(String[] args) throws Exception {
 		long[][] D = new long[1001][1001];
