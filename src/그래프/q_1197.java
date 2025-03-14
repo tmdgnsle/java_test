@@ -1,7 +1,9 @@
+package 그래프;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_1197 {
 	static int[] parent;
 	static PriorityQueue<pEdge> queue;
 
