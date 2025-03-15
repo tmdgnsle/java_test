@@ -1,7 +1,10 @@
+package dp;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_12865 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
