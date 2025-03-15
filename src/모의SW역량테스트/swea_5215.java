@@ -1,7 +1,10 @@
+package 모의SW역량테스트;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class swea_5215 {
     static ArrayList<int[]> ingredient;
     static int N, L;
     static boolean[] v;
