@@ -1,7 +1,10 @@
+package 부분집합;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_17471 {
     static int N;
     static ArrayList<Integer>[] graph;
     static int[] population;
@@ -44,8 +47,7 @@ public class Main {
             boolean teamA = false;
             boolean teamB = false;
             for (int i = 1; i <= N; i++) {
-                if (selected[i])
-                    teamA = true;
+                if (selected[i]) teamA = true;
                 else teamB = true;
             }
 
