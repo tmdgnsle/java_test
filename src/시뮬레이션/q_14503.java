@@ -1,7 +1,9 @@
+package 시뮬레이션;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_14503 {
 	// 북, 동, 남, 서 방향 정의 (문제에서 주어진 방향 기준)
 	static int[] dx = { -1, 0, 1, 0 };
 	static int[] dy = { 0, 1, 0, -1 };
