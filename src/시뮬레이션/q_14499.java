@@ -1,7 +1,10 @@
+package 시뮬레이션;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_14499 {
     // 동(1), 서(2), 북(3), 남(4) 방향으로 이동할 때의 좌표 변화량
     static int[] dx = {0, 0, 0, -1, 1};
     static int[] dy = {0, 1, -1, 0, 0};
