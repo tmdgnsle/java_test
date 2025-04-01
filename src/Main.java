@@ -2,107 +2,83 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    // 동(1), 서(2), 북(3), 남(4) 방향으로 이동할 때의 좌표 변화량
-    static int[] dx = {0, 0, 0, -1, 1};
-    static int[] dy = {0, 1, -1, 0, 0};
-
-    // 주사위의 상태를 나타내는 변수들
-    // top: 윗면, bottom: 바닥면, front: 앞면, back: 뒷면, left: 왼쪽면, right: 오른쪽면
-    static int top = 0, bottom = 0, front = 0, back = 0, left = 0, right = 0;
-
+    static int[][] gears = new int[4][8]; // 4개의 톱니바퀴, 각 8개의 톱니
+    
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-
-        int N = Integer.parseInt(st.nextToken()); // 지도의 세로 크기
-        int M = Integer.parseInt(st.nextToken()); // 지도의 가로 크기
-        int x = Integer.parseInt(st.nextToken()); // 주사위의 초기 x 좌표
-        int y = Integer.parseInt(st.nextToken()); // 주사위의 초기 y 좌표
-        int K = Integer.parseInt(st.nextToken()); // 명령의 개수
-
-        // 지도 정보 입력 받기
-        int[][] map = new int[N][M];
-        for (int i = 0; i < N; i++) {
-            st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < M; j++) {
-                map[i][j] = Integer.parseInt(st.nextToken());
+        
+        // 톱니바퀴 상태 입력 받기
+        for (int i = 0; i < 4; i++) {
+            String line = br.readLine();
+            for (int j = 0; j < 8; j++) {
+                gears[i][j] = line.charAt(j) - '0';
             }
         }
-
-        // 명령 입력 받기
-        st = new StringTokenizer(br.readLine());
-        StringBuilder sb = new StringBuilder();
-
+        
+        // 회전 횟수 입력 받기
+        int K = Integer.parseInt(br.readLine());
+        
+        // K번 회전 실행
         for (int i = 0; i < K; i++) {
-            int command = Integer.parseInt(st.nextToken());
-
-            // 다음 위치 계산
-            int nx = x + dx[command];
-            int ny = y + dy[command];
-
-            // 다음 위치가 지도 범위 안에 있는지 확인
-            if (nx < 0 || nx >= N || ny < 0 || ny >= M) {
-                continue; // 범위를 벗어나면 해당 명령을 무시
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int gearNum = Integer.parseInt(st.nextToken()) - 1; // 0-based 인덱스로 변환
+            int direction = Integer.parseInt(st.nextToken()); // 1: 시계방향, -1: 반시계방향
+            
+            // 각 톱니바퀴의 회전 방향 결정 (왼쪽, 오른쪽으로 전파)
+            int[] rotations = new int[4];
+            rotations[gearNum] = direction;
+            
+            // 왼쪽으로 전파
+            for (int j = gearNum; j > 0; j--) {
+                if (gears[j][6] != gears[j-1][2]) { // 맞닿은 부분이 다른 극이면
+                    rotations[j-1] = -rotations[j]; // 반대 방향으로 회전
+                } else {
+                    break; // 같은 극이면 더 이상 회전하지 않음
+                }
             }
-
-            // 주사위 굴리기
-            roll(command);
-
-            // 이동한 칸에 쓰여 있는 수가 0이면, 주사위의 바닥면에 쓰여 있는 수를 복사
-            if (map[nx][ny] == 0) {
-                map[nx][ny] = bottom;
+            
+            // 오른쪽으로 전파
+            for (int j = gearNum; j < 3; j++) {
+                if (gears[j][2] != gears[j+1][6]) { // 맞닿은 부분이 다른 극이면
+                    rotations[j+1] = -rotations[j]; // 반대 방향으로 회전
+                } else {
+                    break; // 같은 극이면 더 이상 회전하지 않음
+                }
             }
-            // 0이 아닌 경우, 칸에 쓰여 있는 수를 주사위의 바닥면으로 복사하고, 칸의 수를 0으로 변경
-            else {
-                bottom = map[nx][ny];
-                map[nx][ny] = 0;
+            
+            // 모든 톱니바퀴 회전
+            for (int j = 0; j < 4; j++) {
+                if (rotations[j] != 0) {
+                    rotate(j, rotations[j]);
+                }
             }
-
-            // 주사위의 윗면에 쓰여 있는 수 출력
-            sb.append(top).append('\n');
-
-            // 주사위 위치 갱신
-            x = nx;
-            y = ny;
         }
-
-        System.out.print(sb);
+        
+        // 점수 계산
+        int score = 0;
+        for (int i = 0; i < 4; i++) {
+            if (gears[i][0] == 1) { // 12시 방향이 S극(1)이면
+                score += (1 << i); // 2^i 점 획득 (1, 2, 4, 8)
+            }
+        }
+        
+        System.out.println(score);
     }
-
-    // 주사위를 굴리는 함수
-    static void roll(int direction) {
-        int temp;
-
-        // 각 방향에 따라 주사위의 면이 변경됨
-        switch (direction) {
-            case 1: // 동쪽 방향으로 굴리기
-                temp = top;
-                top = left;
-                left = bottom;
-                bottom = right;
-                right = temp;
-                break;
-            case 2: // 서쪽 방향으로 굴리기
-                temp = top;
-                top = right;
-                right = bottom;
-                bottom = left;
-                left = temp;
-                break;
-            case 3: // 북쪽 방향으로 굴리기
-                temp = top;
-                top = front;
-                front = bottom;
-                bottom = back;
-                back = temp;
-                break;
-            case 4: // 남쪽 방향으로 굴리기
-                temp = top;
-                top = back;
-                back = bottom;
-                bottom = front;
-                front = temp;
-                break;
+    
+    // 톱니바퀴 회전
+    static void rotate(int gearNum, int direction) {
+        if (direction == 1) { // 시계 방향
+            int temp = gears[gearNum][7];
+            for (int i = 7; i > 0; i--) {
+                gears[gearNum][i] = gears[gearNum][i-1];
+            }
+            gears[gearNum][0] = temp;
+        } else { // 반시계 방향
+            int temp = gears[gearNum][0];
+            for (int i = 0; i < 7; i++) {
+                gears[gearNum][i] = gears[gearNum][i+1];
+            }
+            gears[gearNum][7] = temp;
         }
     }
 }
