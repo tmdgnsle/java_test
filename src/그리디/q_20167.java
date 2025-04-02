@@ -1,11 +1,15 @@
+package 그리디;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_20167 {
     static int N, K;
     static int[] arr;
     static int result;
-    public static void main(String[] args) throws Exception{
+
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
@@ -25,22 +29,22 @@ public class Main {
 
     }
 
-    static void move(int current, int idx, int energy){
-        if(current >= K){
+    static void move(int current, int idx, int energy) {
+        if (current >= K) {
             energy += current - K;
             current = 0;
         }
 
-        if(idx == N){
+        if (idx == N) {
             result = Math.max(result, energy);
             return;
         }
 
-        if(current == 0){
-            move(current, idx+1, energy);
-            move(arr[idx], idx+1, energy);
+        if (current == 0) {
+            move(current, idx + 1, energy);
+            move(arr[idx], idx + 1, energy);
         } else {
-            move(current+arr[idx], idx+1, energy);
+            move(current + arr[idx], idx + 1, energy);
         }
 
     }
