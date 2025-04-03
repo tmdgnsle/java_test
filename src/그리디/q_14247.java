@@ -1,7 +1,9 @@
+package 그리디;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_14247 {
 	static int n;
 
 	public static void main(String[] args) throws Exception {
