@@ -1,7 +1,9 @@
+package 시뮬레이션;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_2578 {
 	static int count;
 	static int count_b;
 	static int[][] board;
@@ -24,13 +26,14 @@ public class Main {
 				int p = Integer.parseInt(st.nextToken());
 				count++;
 				bingo(p);
-				if(count_b >= 3) break;
+				if (count_b >= 3)
+					break;
 			}
-			if(count_b >= 3) break;
+			if (count_b >= 3)
+				break;
 		}
-		
+
 		System.out.println(count);
-		
 
 	}
 
