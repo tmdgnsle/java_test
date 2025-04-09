@@ -1,7 +1,9 @@
+package 시뮬레이션;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_13335 {
 	static int n, w, L;
 	static Queue<Integer> trucks;
 	static int time;
