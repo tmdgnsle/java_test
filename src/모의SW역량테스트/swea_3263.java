@@ -1,12 +1,15 @@
+package 모의SW역량테스트;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
-    public static void main(String[] args) throws Exception{
+public class swea_3263 {
+    public static void main(String[] args) throws Exception {
         System.setIn(new FileInputStream("res/input_3263.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
-        for(int t = 1; t<=T; t++){
+        for (int t = 1; t <= T; t++) {
             int N = Integer.parseInt(br.readLine());
             int[] nums = new int[N];
             StringTokenizer st = new StringTokenizer(br.readLine());
@@ -15,12 +18,12 @@ public class Main {
                 nums[i] = Integer.parseInt(st.nextToken());
             }
 
-            int[] maxLength = new int[N+1];
+            int[] maxLength = new int[N + 1];
             int maxResult = 0;
 
             for (int i = 0; i < N; i++) {
                 int num = nums[i];
-                maxLength[num] = Math.max(maxLength[num-1]+1, maxLength[num]);
+                maxLength[num] = Math.max(maxLength[num - 1] + 1, maxLength[num]);
                 maxResult = Math.max(maxLength[num], maxResult);
             }
 
