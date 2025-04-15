@@ -1,12 +1,15 @@
+package 그리디;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
-    public static void main(String[] args) throws Exception{
+public class q_1946 {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
 
-        for(int t = 1; t<=T; t++){
+        for (int t = 1; t <= T; t++) {
             int N = Integer.parseInt(br.readLine());
 
             int[][] scores = new int[N][2];
@@ -23,7 +26,7 @@ public class Main {
             int minScore = scores[0][1];
 
             for (int i = 1; i < N; i++) {
-                if(scores[i][1] < minScore){
+                if (scores[i][1] < minScore) {
                     count++;
                     minScore = scores[i][1];
                 }
