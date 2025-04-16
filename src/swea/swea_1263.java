@@ -1,4 +1,4 @@
-package 모의SW역량테스트;
+package swea;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

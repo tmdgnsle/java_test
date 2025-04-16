@@ -1,11 +1,11 @@
+package swea;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-
-public class Main {
+public class swea_14510 {
 
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input_14510.txt"));
