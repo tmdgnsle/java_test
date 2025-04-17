@@ -1,7 +1,10 @@
+package bfs;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_10026 {
     static int N;
     static String[][] colors;
     static boolean[][] v;
