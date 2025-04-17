@@ -1,7 +1,10 @@
+package 이진탐색;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_2512 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
@@ -18,7 +21,7 @@ public class Main {
 
         int total_money = Integer.parseInt(br.readLine());
 
-        if(money_sum <= total_money){
+        if (money_sum <= total_money) {
             System.out.println(max_money);
             return;
         }
