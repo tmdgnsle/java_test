@@ -1,7 +1,10 @@
+package 다익스트라;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_4485 {
     static class Node implements Comparable<Node> {
         int x;
         int y;
@@ -26,7 +29,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int t = 1;
-        while(true){
+        while (true) {
             int N = Integer.parseInt(br.readLine());
             if (N == 0) break;
 
