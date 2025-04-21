@@ -1,7 +1,9 @@
+package 이진탐색;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_2805 {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
