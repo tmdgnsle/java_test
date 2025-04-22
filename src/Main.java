@@ -2,82 +2,53 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    static class Node implements Comparable<Node> {
-        int x;
-        int y;
-        int cost;
+	public static void main(String[] args) throws Exception {
+		System.setIn(new FileInputStream("res/input_14510.txt"));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int T = Integer.parseInt(br.readLine());
+		for (int t = 1; t <= T; t++) {
+			int N = Integer.parseInt(br.readLine());
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			int max = 0;
+			int[] trees = new int[N];
+			for (int i = 0; i < N; i++) {
+				int tree = Integer.parseInt(st.nextToken());
+				trees[i] = tree;
 
-        Node(int x, int y, int cost) {
-            super();
-            this.x = x;
-            this.y = y;
-            this.cost = cost;
-        }
+				max = Math.max(max, tree);
+			}
 
-        @Override
-        public int compareTo(Node o) {
-            return this.cost - o.cost;
-        }
-    }
+			int even = 0, odd = 0;
 
-    static int[] dx = {-1, 1, 0, 0};
-    static int[] dy = {0, 0, -1, 1};
+			for (int i = 0; i < N; i++) {
+				int diff = max - trees[i];
 
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int t = 1;
-        while(true){
-            int N = Integer.parseInt(br.readLine());
-            if (N == 0) break;
+				if (diff == 0)
+					continue;
 
-            int[][] map = new int[N][N];
-            for (int i = 0; i < N; i++) {
-                StringTokenizer st = new StringTokenizer(br.readLine());
-                for (int j = 0; j < N; j++) {
-                    map[i][j] = Integer.parseInt(st.nextToken());
-                }
-            }
+				even += diff / 2;
+				odd += diff % 2;
+			}
 
-            int result = dijkstra(map, N);
+			if (even > odd) {
+				while (Math.abs(even - odd) > 1) {
+					even -= 1;
+					odd += 2;
+				}
+			}
 
-            System.out.println("Problem " + t + ": " + result);
+			int result = 0;
 
-            t++;
-        }
-    }
+			if (even > odd) {
+				result = 2 * even;
+			} else if (odd > even) {
+				result = 2 * odd - 1;
+			} else {
+				result = even + odd;
+			}
 
-    static int dijkstra(int[][] map, int N) {
-        int[][] costMap = new int[N][N];
+			System.out.println("#" + t + " " + result);
 
-        for (int i = 0; i < N; i++) {
-            Arrays.fill(costMap[i], Integer.MAX_VALUE);
-        }
-
-        costMap[0][0] = map[0][0];
-
-        PriorityQueue<Node> pq = new PriorityQueue<>();
-        pq.offer(new Node(0, 0, map[0][0]));
-        while (!pq.isEmpty()) {
-            Node cur = pq.poll();
-            int cx = cur.x;
-            int cy = cur.y;
-            int currentCost = cur.cost;
-
-            for (int i = 0; i < 4; i++) {
-                int nx = cx + dx[i];
-                int ny = cy + dy[i];
-
-                if (nx < 0 || nx >= N || ny < 0 || ny >= N) continue;
-
-                int nextCost = currentCost + map[nx][ny];
-                if (nextCost < costMap[nx][ny]) {
-                    costMap[nx][ny] = nextCost;
-                    pq.offer(new Node(nx, ny, nextCost));
-                }
-            }
-        }
-
-        return costMap[N - 1][N - 1];
-
-    }
+		}
+	}
 }
