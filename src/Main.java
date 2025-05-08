@@ -81,8 +81,8 @@ public class Main {
 		while (y <= N) {
 			out = 0;
 			ru = new boolean[3];
-			while (out <= 3) {
-				int h = hit[hitter[next]].get(y);
+			while (out < 3) {
+				int h = hit[hitter[next]].get(y-1);
 
 				if (h == 0) {
 					out++;
