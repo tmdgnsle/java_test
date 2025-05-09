@@ -1,7 +1,9 @@
+package bfs;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_16928 {
 	static int N, M;
 	static int result;
 	static boolean[] v;
