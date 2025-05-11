@@ -1,83 +1,55 @@
 import java.io.*;
 import java.util.*;
 
+
 public class Main {
-	static int N, M;
-	static int result;
-	static boolean[] v;
-	static Node[] le;
 
-	static class Node {
-		int start;
-		int end;
+	static class Lecture implements Comparable<Lecture> {
+		private int d;
+		private int p;
 
-		Node(int start, int end) {
-			this.start = start;
-			this.end = end;
+		Lecture(int d, int p){
+			this.d = d;
+			this.p = p;
+		}
+
+		@Override
+		public int compareTo(Lecture o) {
+			return -(this.p - o.p);
 		}
 	}
 
-	static class Current {
-		int current;
-		int count;
-
-		Current(int current, int count) {
-			this.current = current;
-			this.count = count;
-		}
-	}
-
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
+		int n = Integer.parseInt(br.readLine());
+		PriorityQueue<Lecture> pq = new PriorityQueue<Lecture>();
+		int maxD = 0;
+		for (int i = 0; i < n; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			int p = Integer.parseInt(st.nextToken());
+			int d = Integer.parseInt(st.nextToken());
 
-		N = Integer.parseInt(st.nextToken());
-		M = Integer.parseInt(st.nextToken());
-
-		result = Integer.MAX_VALUE;
-
-		le = new Node[N + M];
-
-		for (int i = 0; i < N + M; i++) {
-			st = new StringTokenizer(br.readLine());
-			int start = Integer.parseInt(st.nextToken());
-			int end = Integer.parseInt(st.nextToken());
-
-			le[i] = new Node(start, end);
-
+			if(d > maxD){
+				maxD = d;
+			}
+			pq.add(new Lecture(d, p));
 		}
 
-		v = new boolean[101];
-		bfs();
+		boolean[] v = new boolean[maxD+1];
+		int result = 0;
+		while(!pq.isEmpty()){
+			Lecture l = pq.poll();
+			for(int i = l.d; i>=1; i--){
+				if(!v[i]){
+					v[i] = true;
+					result += l.p;
+					break;
+				}
+			}
+
+		}
 
 		System.out.println(result);
-
-	}
-
-	static void bfs() {
-		v[1] = true;
-		Queue<Current> queue = new LinkedList<>();
-		queue.add(new Current(1, 0));
-
-		while (!queue.isEmpty()) {
-			Current current = queue.poll();
-
-			for (int i = 0; i < N + M; i++) {
-				if (le[i].start == current.current) {
-					current = new Current(le[i].end, current.count);
-				}
-			}
-			for (int i = 1; i <= 6; i++) {
-				int next = current.current + i;
-				if (next < 100 && !v[next]) {
-					v[next] = true;
-					queue.add(new Current(next, current.count + 1));
-				}
-				if (next == 100) {
-					result = Math.min(result, current.count + 1);
-				}
-			}
-		}
 
 	}
 
