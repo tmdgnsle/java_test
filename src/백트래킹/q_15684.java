@@ -1,7 +1,10 @@
+package 백트래킹;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_15684 {
 
     static class Ladder {
         int x;
@@ -37,7 +40,7 @@ public class Main {
 
         result = Integer.MAX_VALUE;
 
-        for(int i = 0; i<=3; i++){
+        for (int i = 0; i <= 3; i++) {
             bt(0, i);
         }
 
@@ -53,7 +56,7 @@ public class Main {
             return;
         }
 
-        if(result != Integer.MAX_VALUE) return;
+        if (result != Integer.MAX_VALUE) return;
 
 
         for (int i = 1; i <= H; i++) {
