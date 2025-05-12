@@ -1,7 +1,9 @@
+package 다익스트라;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_13549 {
 
 	static class Point implements Comparable<Point> {
 		int time;
