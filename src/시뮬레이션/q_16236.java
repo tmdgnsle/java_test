@@ -1,7 +1,10 @@
+package 시뮬레이션;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_16236 {
     static int N;
     static int[][] map;
     static int[] dx = {-1, 0, 1, 0};
@@ -63,11 +66,11 @@ public class Main {
 
         Position p = me;
         map[p.x][p.y] = 0;
-        while(true){
+        while (true) {
             PriorityQueue<Position> pq = bfs(p, level);
 
             int canEat = pq.size();
-            if(canEat == 0){
+            if (canEat == 0) {
                 break;
             }
 
@@ -75,7 +78,7 @@ public class Main {
             map[p.x][p.y] = 0;
 
             count++;
-            if(level == count){
+            if (level == count) {
                 level++;
                 count = 0;
             }
