@@ -1,7 +1,9 @@
+package 투포인터;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class q_2467 {
 
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,7 +24,6 @@ public class Main {
 
 		while (start < end) {
 			long diff = nums[start] + nums[end];
-			
 
 			if (diff == 0) {
 				result = diff;
