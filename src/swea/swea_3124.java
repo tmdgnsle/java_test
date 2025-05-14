@@ -1,7 +1,10 @@
+package swea;
+
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class swea_3124 {
     static class Edge implements Comparable<Edge> {
         int destination;
         int weight;
