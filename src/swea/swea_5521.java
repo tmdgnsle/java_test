@@ -1,7 +1,9 @@
+package swea;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class swea_5521 {
     static int N, M;
     static ArrayList<Integer>[] arr;
 
