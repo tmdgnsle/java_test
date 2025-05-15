@@ -1,7 +1,9 @@
+package swea;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class swea_13041 {
 
 	static class Work {
 		int person;
