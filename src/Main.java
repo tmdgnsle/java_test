@@ -3,66 +3,55 @@ import java.util.*;
 
 public class Main {
 
+	static class Jewelry implements Comparable<Jewelry> {
+		int m;
+		int v;
+
+		Jewelry(int m, int v) {
+			this.m = m;
+			this.v = v;
+		}
+
+		@Override
+		public int compareTo(Jewelry o) {
+			return Integer.compare(o.v, this.v); // 가치 내림차순
+		}
+	}
+
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int T = Integer.parseInt(br.readLine());
-		for (int t = 1; t <= T; t++) {
-			String command = br.readLine();
-			int N = Integer.parseInt(br.readLine());
-			String words = br.readLine();
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int N = Integer.parseInt(st.nextToken());
+		int K = Integer.parseInt(st.nextToken());
 
-			Deque<Integer> deque = new ArrayDeque<>();
+		PriorityQueue<Jewelry> jewelries = new PriorityQueue<>();
+		TreeSet<Integer> bags = new TreeSet<>(); // 사용 가능한 가방들의 용량
 
-			// 입력 처리
-			if (N > 0) {
-				String[] nums = words.substring(1, words.length() - 1).split(",");
-				for (String num : nums) {
-					deque.add(Integer.parseInt(num));
-				}
-			}
-
-			boolean isReversed = false;
-			boolean isError = false;
-			for (int i = 0; i < command.length(); i++) {
-				String c = command.substring(i, i + 1);
-
-				if (c.equals("R")) {
-					isReversed = !isReversed;
-				} else {
-					if (deque.isEmpty()) {
-						isError = true;
-						break;
-					}
-					if (isReversed) {
-						deque.pollLast();
-					} else {
-						deque.pollFirst();
-					}
-				}
-
-			}
-			if (!isError) {
-				System.out.print("[");
-				while (!deque.isEmpty()) {
-					if (isReversed) {
-						if (deque.size() == 1) {
-							System.out.print(deque.pollLast());
-						} else {
-							System.out.print(deque.pollLast() + ",");
-						}
-					} else {
-						if (deque.size() == 1) {
-							System.out.print(deque.pollFirst());
-						} else {
-							System.out.print(deque.pollFirst() + ",");
-						}
-					}
-				}
-				System.out.println("]");
-			} else {
-				System.out.println("error");
-			}
-
+		for (int i = 0; i < N; i++) {
+			st = new StringTokenizer(br.readLine());
+			int m = Integer.parseInt(st.nextToken());
+			int v = Integer.parseInt(st.nextToken());
+			jewelries.add(new Jewelry(m, v));
 		}
+
+		for (int i = 0; i < K; i++) {
+			bags.add(Integer.parseInt(br.readLine()));
+		}
+
+		long result = 0;
+
+		while (!jewelries.isEmpty() && !bags.isEmpty()) {
+			Jewelry jewelry = jewelries.poll();
+
+			// 현재 보석의 무게 이상인 가장 작은 용량의 가방 찾기
+			Integer suitableBag = bags.ceiling(jewelry.m);
+
+			if (suitableBag != null) {
+				result += jewelry.v;
+				bags.remove(suitableBag); // 사용한 가방 제거
+			}
+		}
+
+		System.out.println(result);
 	}
 }
