@@ -1,7 +1,11 @@
-import java.io.*;
-import java.util.*;
+package 플로이드_워셜;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class q_11404 {
+
     static int n;
     static int[][] costs;
 
@@ -44,12 +48,12 @@ public class Main {
 
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
-                if(costs[i][j] == Integer.MAX_VALUE){
+                if (costs[i][j] == Integer.MAX_VALUE) {
                     System.out.print("0 ");
                 } else {
                     System.out.print(costs[i][j] + " ");
                 }
-                
+
             }
             System.out.println();
         }
