@@ -1,7 +1,13 @@
-import java.io.*;
-import java.util.*;
+package dfs;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class q_1926 {
+
     static int[][] draws;
     static boolean[][] v;
     static int[] dx = {-1, 0, 1, 0};
