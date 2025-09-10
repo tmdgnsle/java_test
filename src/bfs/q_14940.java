@@ -1,7 +1,14 @@
-import java.io.*;
-import java.util.*;
+package bfs;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class q_14940 {
+
     static int n, m;
     static int[][] map;
     static int startX, startY;
@@ -9,6 +16,7 @@ public class Main {
     static int[] dy = {0, 1, 0, -1};
     static int[][] distance;
     static boolean[][] v;
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -25,11 +33,11 @@ public class Main {
             for (int j = 0; j < m; j++) {
                 int num = Integer.parseInt(st.nextToken());
                 map[i][j] = num;
-                if(num == 2){
+                if (num == 2) {
                     startX = i;
                     startY = j;
                 }
-                if(num == 0){
+                if (num == 0) {
                     distance[i][j] = 0;
                 }
             }
@@ -39,7 +47,7 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                    System.out.print(distance[i][j] + " ");
+                System.out.print(distance[i][j] + " ");
             }
             System.out.println();
         }
@@ -47,23 +55,23 @@ public class Main {
 
     }
 
-    static void bfs(){
+    static void bfs() {
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[]{startX, startY, 0});
         distance[startX][startY] = 0;
         v[startX][startY] = true;
 
 
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int[] current = queue.poll();
             int cx = current[0];
             int cy = current[1];
             int cd = current[2];
 
-            for(int i = 0; i<4; i++){
+            for (int i = 0; i < 4; i++) {
                 int nx = cx + dx[i];
                 int ny = cy + dy[i];
-                if(isValid(nx, ny)){
+                if (isValid(nx, ny)) {
                     v[nx][ny] = true;
                     queue.add(new int[]{nx, ny, cd + 1});
                     distance[nx][ny] = cd + 1;
@@ -74,7 +82,7 @@ public class Main {
         }
     }
 
-    static boolean isValid(int x, int y){
+    static boolean isValid(int x, int y) {
         return x >= 0 && x < n && y >= 0 && y < m && map[x][y] != 0 && !v[x][y];
     }
 
