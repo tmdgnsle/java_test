@@ -1,6 +1,10 @@
-import java.io.*;
+package 그리디;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class q_2292 {
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
