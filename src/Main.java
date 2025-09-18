@@ -2,56 +2,75 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static class Edge implements Comparable<Edge>{
+        int start;
+        int end;
+        int value;
 
-        int n = Integer.parseInt(br.readLine());
-        int[] arr = new int[n];
-
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
+        public Edge(int start, int end, int value){
+            this.start = start;
+            this.end = end;
+            this.value = value;
         }
 
-        // 정렬 - 투 포인터를 사용하기 위함
-        Arrays.sort(arr);
+        @Override
+        public int compareTo(Edge o){
+            return this.value - o.value;
+        }
+    }
 
-        long answer = 0;
+    static int N, M;
+    static PriorityQueue<Edge> pq;
+    static int[] parent;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
 
-        for(int i = 0; i<n-2; i++){
-            int left = i+1;
-            int right = n-1;
+        pq = new PriorityQueue<>();
+        parent = new int[N+1];
+        for (int i = 0; i < N + 1; i++) {
+            parent[i] = i;
+        }
 
-            while(left < right){
-                int sum = arr[i] + arr[left] + arr[right];
-                if(sum == 0){
-                    if(arr[left] == arr[right]){
-                        int count = right - left + 1;
-                        answer += (long) count * (count-1) / 2;
-                        break;
-                    }else {
-                        int leftCount = 1;
-                        int rightCount = 1;
-                        while(left + leftCount < right && arr[left] == arr[left + leftCount]){
-                            leftCount++;
-                        }
-                        while(right - rightCount > left && arr[right] == arr[right - rightCount]){
-                            right--;
-                            rightCount++;
-                        }
+        for (int i = 0; i < M; i++) {
+            st = new StringTokenizer(br.readLine());
+            int s = Integer.parseInt(st.nextToken());
+            int e = Integer.parseInt(st.nextToken());
+            int v = Integer.parseInt(st.nextToken());
 
-                        answer += (long) leftCount * rightCount;
-                        left += leftCount;
-                        right += rightCount;
-                    }
-                }else if(sum < 0){
-                    left++;
-                }else {
-                    right--;
-                }
+            pq.add(new Edge(s, e, v));
+        }
+
+        int usedEdge = 0;
+        int result = 0;
+
+        while(usedEdge < N-1){
+            Edge now = pq.poll();
+            if(find(now.start) != find(now.end)){
+                union(now.start, now.end);
+                result+=now.value;
+                usedEdge++;
             }
         }
 
-        System.out.println(answer);
+        System.out.println(result);
+    }
+
+    static int find(int a){
+        if(parent[a] == a){
+            return a;
+        }
+        return parent[a] = find(parent[a]);
+    }
+
+    static void union(int a, int b){
+        a = find(a);
+        b = find(b);
+
+        if(a != b){
+            parent[b] = a;
+        }
     }
 }
