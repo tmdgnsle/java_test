@@ -1,7 +1,12 @@
-import java.io.*;
-import java.util.*;
+package 그리디;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class q_11723 {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -28,9 +33,9 @@ public class Main {
 
                 case "check":
                     int checkNum = Integer.parseInt(input[1]);
-                    if(S[checkNum]){
+                    if (S[checkNum]) {
                         sb.append(1 + "\n");
-                    }else {
+                    } else {
                         sb.append(0 + "\n");
                     }
                     break;
