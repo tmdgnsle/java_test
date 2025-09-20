@@ -1,7 +1,12 @@
-import java.io.*;
-import java.util.*;
+package 그리디;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class q_14719 {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -12,7 +17,7 @@ public class Main {
         for (int i = 0; i < w; i++) {
             int n = Integer.parseInt(st.nextToken());
 
-            for(int j = h-1; j > h-1-n; j--){
+            for (int j = h - 1; j > h - 1 - n; j--) {
                 map[j][i] = true;
             }
         }
@@ -23,16 +28,16 @@ public class Main {
             boolean right = false;
             int count = 0;
             for (int j = 0; j < w; j++) {
-                if(map[i][j]){
-                    if(!left){
+                if (map[i][j]) {
+                    if (!left) {
                         left = true;
-                    }else {
+                    } else {
                         answer += count;
                         count = 0;
                     }
                 } else {
-                    if(left){
-                        count ++;
+                    if (left) {
+                        count++;
                     }
                 }
             }
