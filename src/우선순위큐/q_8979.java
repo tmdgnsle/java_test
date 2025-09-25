@@ -1,7 +1,14 @@
-import java.io.*;
-import java.util.*;
+package 우선순위큐;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
+
+public class q_8979 {
+
 
     static class Country implements Comparable<Country> {
         int country;
@@ -35,7 +42,7 @@ public class Main {
         int K = Integer.parseInt(st.nextToken());
 
         PriorityQueue<Country> pq = new PriorityQueue<>();
-        for(int i = 0; i<N; i++){
+        for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             int start = Integer.parseInt(st.nextToken());
             int gold = Integer.parseInt(st.nextToken());
@@ -48,27 +55,26 @@ public class Main {
         Country before = new Country(0, 0, 0, 0);
         int grade = 1;
         int beforeGrade = 1;
-        ArrayList<Country>[] arrs = new ArrayList[N+1];
-        for(int i = 1; i<=N; i++){
+        ArrayList<Country>[] arrs = new ArrayList[N + 1];
+        for (int i = 1; i <= N; i++) {
             arrs[i] = new ArrayList<>();
         }
-        while(!pq.isEmpty()){
+        while (!pq.isEmpty()) {
             Country current = pq.poll();
-            if(before.gold == current.gold && before.silver == current.silver && before.bronze == current.bronze){
+            if (before.gold == current.gold && before.silver == current.silver && before.bronze == current.bronze) {
                 arrs[beforeGrade].add(current);
-                if(current.country == K){
+                if (current.country == K) {
                     System.out.println(beforeGrade);
                     break;
                 }
-            }else {
+            } else {
                 arrs[grade].add(current);
                 beforeGrade = grade;
-                if(current.country == K){
+                if (current.country == K) {
                     System.out.println(grade);
                     break;
                 }
             }
-
 
 
             grade++;
