@@ -1,10 +1,20 @@
-import java.io.*;
-import java.util.*;
+package bfs;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class q_9205 {
+
     static class Point {
         int x, y;
-        Point(int x, int y) { this.x = x; this.y = y; }
+
+        Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
     }
 
     public static void main(String[] args) throws Exception {
