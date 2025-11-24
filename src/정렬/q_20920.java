@@ -1,7 +1,11 @@
-import java.io.*;
+package 정렬;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.*;
 
-public class Main {
+public class q_20920 {
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -17,7 +21,7 @@ public class Main {
 
             map.put(word, map.getOrDefault(word, 0) + 1);
         }
-        
+
         List<String> words = new ArrayList<>(map.keySet());
 
         words.sort((a, b) -> {
