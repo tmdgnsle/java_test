@@ -1,16 +1,21 @@
-import java.io.*;
+package 다익스트라;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.*;
 
-public class Main {
-    static class Road implements Comparable<Road>{
+public class q_1446 {
+
+    static class Road implements Comparable<Road> {
         int to, cost;
+
         Road(int to, int cost) {
             this.to = to;
             this.cost = cost;
         }
 
         @Override
-        public int compareTo(Road o){
+        public int compareTo(Road o) {
             return this.cost - o.cost;
         }
     }
