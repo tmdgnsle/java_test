@@ -1,7 +1,11 @@
-import java.io.*;
-import java.util.*;
+package 슬라이딩윈도우;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class q_21921 {
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -9,31 +13,31 @@ public class Main {
         int X = Integer.parseInt(st.nextToken());
         int[] people = new int[N];
         st = new StringTokenizer(br.readLine());
-        for(int i = 0; i<N; i++){
+        for (int i = 0; i < N; i++) {
             people[i] = Integer.parseInt(st.nextToken());
         }
         int max = Integer.MIN_VALUE;
         int count = 0;
-        int[] sum = new int[N-X+1];
-        for(int i = 0; i<X; i++){
+        int[] sum = new int[N - X + 1];
+        for (int i = 0; i < X; i++) {
             sum[0] += people[i];
         }
-        for(int i = 1; i<N-X+1; i++){
-            sum[i] = sum[i-1] - people[i-1] + people[i + X-1];
+        for (int i = 1; i < N - X + 1; i++) {
+            sum[i] = sum[i - 1] - people[i - 1] + people[i + X - 1];
         }
 
-        for(int i = 0; i<N-X+1; i++){
-            if(sum[i] > max){
+        for (int i = 0; i < N - X + 1; i++) {
+            if (sum[i] > max) {
                 max = sum[i];
                 count = 1;
-            }else if(sum[i] == max){
+            } else if (sum[i] == max) {
                 count++;
             }
         }
 
 
-        if(max == 0) System.out.println("SAD");
-        else{
+        if (max == 0) System.out.println("SAD");
+        else {
             System.out.println(max);
             System.out.println(count);
         }
@@ -41,3 +45,4 @@ public class Main {
 
     }
 }
+
