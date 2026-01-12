@@ -1,7 +1,12 @@
-import java.io.*;
-import java.util.*;
+package set;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.HashSet;
+import java.util.StringTokenizer;
+
+public class q_25757 {
+
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -12,7 +17,7 @@ public class Main {
         G = st.nextToken().charAt(0);
 
         HashSet<String> set = new HashSet<>();
-        for(int i = 0; i<N; i++){
+        for (int i = 0; i < N; i++) {
             set.add(br.readLine());
         }
 
@@ -20,11 +25,11 @@ public class Main {
 
         int total = set.size();
 
-        if(G == 'Y'){
+        if (G == 'Y') {
             answer = total;
-        }else if(G == 'F'){
+        } else if (G == 'F') {
             answer = total / 2;
-        }else if(G == 'O'){
+        } else if (G == 'O') {
             answer = total / 3;
         }
 
