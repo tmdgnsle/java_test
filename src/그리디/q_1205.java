@@ -1,7 +1,11 @@
-import java.io.*;
-import java.util.*;
+package 그리디;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class q_1205 {
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -31,7 +35,7 @@ public class Main {
             }
         }
 
-        
+
         if (rank > P || (N == P && newScore <= scores[N - 1])) {
             System.out.println(-1);
         } else {
