@@ -1,7 +1,14 @@
-import java.io.*;
-import java.util.*;
+package bfs;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.StringTokenizer;
+
+public class q_4179 {
+
     static int R, C;
     static char[][] grid;
     static int[][] fireTime;
