@@ -1,7 +1,10 @@
-import java.io.*;
-import java.util.*;
+package 그리디;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class q_2138 {
+
     static int N;
     static char[] start, target;
 
