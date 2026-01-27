@@ -1,7 +1,12 @@
-import java.io.*;
-import java.util.*;
+package dp;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+public class q_1943 {
+
     static boolean[] dp;
     static ArrayList<int[]> moneys;
 
