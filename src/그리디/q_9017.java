@@ -1,7 +1,12 @@
-import java.io.*;
-import java.util.*;
+package 그리디;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+public class q_9017 {
+
     static ArrayList[] arr;
 
     public static void main(String[] args) throws Exception {
