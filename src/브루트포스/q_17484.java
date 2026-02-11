@@ -1,7 +1,13 @@
-import java.io.*;
-import java.util.*;
+package 브루트포스;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+public class q_17484 {
+
     static class Node {
         int x;
         int y;
