@@ -1,7 +1,10 @@
-import java.io.*;
-import java.util.*;
+package 이진탐색;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class q_19637 {
 
     static String[] title;
     static int[] power;
