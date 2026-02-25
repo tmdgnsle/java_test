@@ -1,7 +1,12 @@
-import java.io.*;
-import java.util.*;
+package 이진탐색;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class q_2110 {
+
 
     static int N, C;
     static int[] x;
