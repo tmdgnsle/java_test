@@ -1,7 +1,13 @@
-import java.io.*;
-import java.util.*;
+package 시뮬레이션;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.StringTokenizer;
+
+public class q_20006 {
+
 
     static int p, m;
 
@@ -14,7 +20,7 @@ public class Main {
             this.level = level;
             this.players = new ArrayList<>();
             players.add(p);
-            if(m == 1) canMore = false;
+            if (m == 1) canMore = false;
             else canMore = true;
         }
     }
@@ -41,42 +47,42 @@ public class Main {
         p = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
         ArrayList<Room> rooms = new ArrayList<>();
-        for(int i = 0; i<p; i++){
+        for (int i = 0; i < p; i++) {
             st = new StringTokenizer(br.readLine());
             int l = Integer.parseInt(st.nextToken());
             String n = st.nextToken();
             Player pl = new Player(l, n);
 
-            if(rooms.isEmpty()){
+            if (rooms.isEmpty()) {
                 rooms.add(new Room(l, pl));
                 continue;
             }
 
             boolean requireMake = true;
-            for(Room room: rooms){
-                if(room.canMore && Math.abs(room.level - pl.level) <= 10) {
+            for (Room room : rooms) {
+                if (room.canMore && Math.abs(room.level - pl.level) <= 10) {
                     room.players.add(pl);
-                    if(room.players.size() == m) room.canMore = false;
+                    if (room.players.size() == m) room.canMore = false;
                     requireMake = false;
                     break;
                 }
             }
 
-            if(requireMake){
+            if (requireMake) {
                 rooms.add(new Room(l, pl));
             }
         }
 
-        for(Room room: rooms){
-            if(!room.canMore){
+        for (Room room : rooms) {
+            if (!room.canMore) {
                 System.out.println("Started!");
-            }else {
+            } else {
                 System.out.println("Waiting!");
             }
 
             Collections.sort(room.players);
 
-            for(Player pl: room.players){
+            for (Player pl : room.players) {
                 System.out.println(pl.level + " " + pl.nickname);
             }
         }
