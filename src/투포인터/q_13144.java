@@ -1,7 +1,11 @@
-import java.io.*;
-import java.util.*;
+package 투포인터;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class q_13144 {
+
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -9,7 +13,7 @@ public class Main {
         int[] arr = new int[N];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for(int i = 0; i<N; i++){
+        for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
@@ -18,8 +22,8 @@ public class Main {
         int right = 0;
         long answer = 0;
 
-        for(int left = 0; left<N; left++){
-            while(right < N && !visited[arr[right]]){
+        for (int left = 0; left < N; left++) {
+            while (right < N && !visited[arr[right]]) {
                 visited[arr[right]] = true;
                 right++;
             }
