@@ -1,27 +1,31 @@
-import java.io.*;
-import java.util.*;
+package 그리디;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class q_13305 {
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
-        int[] dist = new int[N-1];
+        int[] dist = new int[N - 1];
         int[] prices = new int[N];
         long answer = 0;
 
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for(int i = 0; i<N-1; i++){
+        for (int i = 0; i < N - 1; i++) {
             dist[i] = Integer.parseInt(st.nextToken());
         }
         st = new StringTokenizer(br.readLine());
-        for(int i = 0; i<N; i++){
+        for (int i = 0; i < N; i++) {
             int price = Integer.parseInt(st.nextToken());
-            if(i == 0) prices[i] = price;
-            else prices[i] = Math.min(prices[i-1], price);
+            if (i == 0) prices[i] = price;
+            else prices[i] = Math.min(prices[i - 1], price);
         }
 
-        for(int i = 0; i<N-1; i++){
+        for (int i = 0; i < N - 1; i++) {
             answer += (long) prices[i] * dist[i];
         }
 
