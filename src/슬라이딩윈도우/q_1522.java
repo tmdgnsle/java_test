@@ -1,7 +1,10 @@
-import java.io.*;
-import java.util.*;
+package 슬라이딩윈도우;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class q_1522 {
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s = br.readLine();
