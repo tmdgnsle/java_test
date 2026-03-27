@@ -1,7 +1,11 @@
-import java.io.*;
+package 다익스트라;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.*;
 
-public class Main {
+public class q_24042 {
+
     static class Edge {
         int to;
         int idx; // 이 횡단보도가 켜지는 시작 Offset
