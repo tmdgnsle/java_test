@@ -1,7 +1,12 @@
-import java.io.*;
-import java.util.*;
+package 우선순위큐;
 
-public class Main {
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
+
+public class q_2075 {
+
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
