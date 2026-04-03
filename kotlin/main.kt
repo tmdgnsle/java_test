@@ -1,19 +1,22 @@
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import java.util.StringTokenizer
 
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
-    val N = br.readLine().toInt()
+    val st = StringTokenizer(br.readLine())
 
-    var answer = 0
+    val a = st.nextToken().toInt()
+    val b = st.nextToken().toInt()
+    val v = st.nextToken().toInt()
 
-    for (i in 1 until N) {
-        val sum = i + i.toString().sumOf { it - '0' }
+    val daily = a - b
+    val beforeLast = v - a
 
-        if (sum == N) {
-            answer = i
-            break
-        }
+    val answer = if (beforeLast <= 0) {
+        1
+    } else {
+        (beforeLast + daily - 1) / daily + 1
     }
 
     println(answer)
