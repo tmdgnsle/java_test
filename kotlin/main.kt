@@ -4,20 +4,27 @@ import java.util.StringTokenizer
 
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
-    val st = StringTokenizer(br.readLine())
+    var st = StringTokenizer(br.readLine())
 
-    val a = st.nextToken().toInt()
-    val b = st.nextToken().toInt()
-    val v = st.nextToken().toInt()
+    val n = st.nextToken().toInt()
+    val m = st.nextToken().toInt()
 
-    val daily = a - b
-    val beforeLast = v - a
+    val prefix = IntArray(n + 1)
+    st = StringTokenizer(br.readLine())
 
-    val answer = if (beforeLast <= 0) {
-        1
-    } else {
-        (beforeLast + daily - 1) / daily + 1
+    for (i in 1..n) {
+        prefix[i] = prefix[i - 1] + st.nextToken().toInt()
     }
 
-    println(answer)
+    val sb = StringBuilder()
+
+    repeat(m) {
+        st = StringTokenizer(br.readLine())
+        val start = st.nextToken().toInt()
+        val end = st.nextToken().toInt()
+
+        sb.append(prefix[end] - prefix[start - 1]).append('\n')
+    }
+
+    print(sb)
 }

@@ -1,7 +1,9 @@
+package 그리디;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Main {
+public class q_17615 {
 
 
     public static void main(String[] args) throws Exception {
