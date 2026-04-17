@@ -1,56 +1,43 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.util.*;
 
 public class Main {
 
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
-        String s = br.readLine();
+        char[] str = br.readLine().toCharArray();
+        int count0 = 0;
+        int count1 = 0;
 
-        int answer = Integer.MAX_VALUE;
+        for(char c: str){
+            if(c == '0') count0++;
+            if(c == '1') count1++;
+        }
 
-        // 4가지 경우
-        answer = Math.min(answer, solve(s, 'R', true));   // R 왼쪽
-        answer = Math.min(answer, solve(s, 'R', false));  // R 오른쪽
-        answer = Math.min(answer, solve(s, 'B', true));   // B 왼쪽
-        answer = Math.min(answer, solve(s, 'B', false));  // B 오른쪽
+        count1 /= 2;
+        count0 /= 2;
 
-        System.out.println(answer);
-    }
-
-    static int solve(String s, char target, boolean toLeft) {
-        int n = s.length();
-        int count = 0;
-
-        if (toLeft) {
-            int idx = 0;
-
-            // 이미 왼쪽에 붙어있는 target 스킵
-            while (idx < n && s.charAt(idx) == target) {
-                idx++;
-            }
-
-            // 나머지에서 target 개수 세기
-            for (int i = idx; i < n; i++) {
-                if (s.charAt(i) == target) count++;
-            }
-
-        } else {
-            int idx = n - 1;
-
-            // 이미 오른쪽에 붙어있는 target 스킵
-            while (idx >= 0 && s.charAt(idx) == target) {
-                idx--;
-            }
-
-            // 나머지에서 target 개수 세기
-            for (int i = 0; i <= idx; i++) {
-                if (s.charAt(i) == target) count++;
+        for(int i = 0; i<str.length; i++){
+            if(str[i] == '1'){
+                str[i] = '.';
+                if(--count1 == 0) break;
             }
         }
 
-        return count;
+        for(int i = str.length - 1; i>=0; i--){
+            if(str[i] == '0'){
+                str[i] = '.';
+                if(--count0 == 0) break;
+            }
+        }
+
+        StringBuilder answer = new StringBuilder();
+
+        for(int i = 0; i<str.length; i++){
+            if(str[i] != '.') answer.append(str[i]);
+        }
+        System.out.println(answer);
+
     }
 }
